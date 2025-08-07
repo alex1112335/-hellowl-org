@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HellOwl Orden</title>
+  <meta name="description" content="Mystic Unity of Art, Spirit, and Knowledge" />
+  <meta property="og:title" content="HellOwl Orden" />
+  <meta property="og:description" content="Mystic Unity of Art, Spirit, and Knowledge" />
+  <meta property="og:image" content="https://hellowl.org/preview.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background-color: #0b032d;
+      color: #f0e6ff;
+      overflow-x: hidden;
+    }
+    canvas#starfield {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+    header {
+      text-align: center;
+      padding: 4rem 1rem 2rem;
+      position: relative;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: -2rem;
+      margin-bottom: 2rem;
+      position: sticky;
+      top: 0;
+      background: rgba(11, 3, 45, 0.95);
+      padding: 0.5rem 1rem;
+      z-index: 10;
+      backdrop-filter: blur(8px);
+    }
+    nav a {
+      color: #fff0fa;
+      font-family: 'UnifrakturCook', cursive;
+      text-decoration: none;
+      font-size: 1.2rem;
+      background: #2a184b;
+      padding: 0.3rem 0.8rem;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+    nav a:hover {
+      background: #7d5fff;
+    }
+    .language-switcher {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+    }
+    .language-switcher button {
+      background: #2a184b;
+      border: 1px solid #7d5fff;
+      color: #fff;
+      padding: 0.4rem 0.8rem;
+      margin-left: 0.5rem;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+    h1 {
+      font-family: 'UnifrakturCook', cursive;
+      font-size: 3.5rem;
+      color: #fff0fa;
+      text-shadow: 0 0 20px #a064f5;
+      animation: glowPulse 3s ease-in-out infinite;
+    }
+    .subtitle {
+      font-size: 1.3rem;
+      color: #d8cfff;
+      margin-top: -1rem;
+      opacity: 0.95;
+    }
+    section {
+      max-width: 850px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: rgba(15, 5, 45, 0.85);
+      border-radius: 16px;
+      box-shadow: 0 0 30px #5a24c5;
+    }
+    h2 {
+      font-family: 'UnifrakturCook', cursive;
+      font-size: 2.2rem;
+      color: #fff8ff;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    p {
+      font-size: 1.25rem;
+      line-height: 1.7;
+    }
+    footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      font-size: 0.9rem;
+      color: #a8a3c2;
+    }
+    @keyframes glowPulse {
+      0%, 100% { text-shadow: 0 0 15px #a064f5; }
+      50% { text-shadow: 0 0 30px #ff80e6; }
+    }
+    @media (max-width: 600px) {
+      h1 { font-size: 2.2rem; }
+      .subtitle { font-size: 1rem; }
+      nav a { font-size: 1rem; padding: 0.3rem 0.5rem; }
+      section { margin: 1rem 0.5rem; padding: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="starfield"></canvas>
+  <header>
+    <div class="language-switcher">
+      <button onclick="setLanguage('en')">EN</button>
+      <button onclick="setLanguage('ua')">UA</button>
+      <button onclick="setLanguage('de')">DE</button>
+    </div>
+    <h1>HellOwl Orden</h1>
+    <p class="subtitle" data-en="Mystic Unity of Art, Spirit, and Knowledge" data-ua="Містична єдність мистецтва, духу і знань" data-de="Mystische Einheit von Kunst, Geist und Wissen">Mystic Unity of Art, Spirit, and Knowledge</p>
+  </header>
+
+  <nav>
+    <a href="#about" data-en="About" data-ua="Про нас" data-de="Über uns">About</a>
+    <a href="#music" data-en="Music" data-ua="Музика" data-de="Musik">Music</a>
+    <a href="#volunteering" data-en="Volunteering" data-ua="Волонтерство" data-de="Freiwilligenarbeit">Volunteering</a>
+    <a href="#art" data-en="Art" data-ua="Мистецтво" data-de="Kunst">Art</a>
+    <a href="#media" data-en="Media" data-ua="Медіа" data-de="Medien">Media</a>
+    <a href="#news" data-en="News" data-ua="Новини" data-de="Nachrichten">News</a>
+    <a href="#blog" data-en="Blog" data-ua="Блог" data-de="Blog">Blog</a>
+    <a href="#join" data-en="Join" data-ua="Приєднатись" data-de="Beitreten">Join</a>
+  </nav>
+
+  <section id="about">
+    <h2 data-en="About" data-ua="Про нас" data-de="Über uns">About</h2>
+    <p data-en="We are the HellOwl Orden — a mystical collective uniting philosophy, music, art, language, and humanitarian action. Founded to inspire and uplift, our mission spreads across borders, guided by wisdom and creativity." data-ua="Ми — HellOwl Orden, містичний колектив, що об’єднує філософію, музику, мистецтво, мову та гуманітарну діяльність. Наша місія — надихати, підтримувати та поширювати мудрість і креативність." data-de="Wir sind der HellOwl Orden – ein mystisches Kollektiv, das Philosophie, Musik, Kunst, Sprache und humanitäres Handeln vereint. Unsere Mission ist es, über Grenzen hinweg zu inspirieren und zu erheben.">
+      We are the HellOwl Orden — a mystical collective uniting philosophy, music, art, language, and humanitarian action. Founded to inspire and uplift, our mission spreads across borders, guided by wisdom and creativity.
+    </p>
+  </section>
+
+  <section id="music" data-aos="fade-up">
+  <h2 data-en="Music" data-ua="Музика" data-de="Musik">Music</h2>
+  <p data-en="Our sound is our signature — a fusion of lo-fi calm, electronic spirit, phonk intensity and cultural mysticism. Each track is a ritual, a journey, and a call. We believe music is the language of memory and soul." data-ua="Наш звук — наша візитівка: поєднання лофайної спокійності, електронного духу, інтенсивності фонку та культурної містики. Кожен трек — це ритуал, подорож і поклик. Ми віримо, що музика — мова памʼяті й душі." data-de="Unser Klang ist unser Zeichen – eine Fusion aus Lo-Fi-Ruhe, elektronischem Geist, Phonk-Intensität und kultureller Mystik. Jeder Track ist ein Ritual, eine Reise und ein Ruf. Wir glauben, Musik ist die Sprache von Erinnerung und Seele.">
+    Our sound is our signature — a fusion of lo-fi calm, electronic spirit, phonk intensity and cultural mysticism. Each track is a ritual, a journey, and a call. We believe music is the language of memory and soul.
+  </p>
+</section>
+
+<section id="volunteering" data-aos="fade-up">
+  <h2 data-en="Volunteering" data-ua="Волонтерство" data-de="Freiwilligenarbeit">Volunteering</h2>
+  <p data-en="We act where help is needed: for children, animals, displaced communities, and endangered culture. Our missions are independent and transparent. Every member can become a light for someone else." data-ua="Ми діємо там, де потрібна допомога: для дітей, тварин, переміщених громад і культур, що зникають. Наші місії — незалежні та прозорі. Кожен учасник може стати світлом для когось іншого." data-de="Wir handeln dort, wo Hilfe gebraucht wird: für Kinder, Tiere, vertriebene Gemeinschaften und gefährdete Kulturen. Unsere Missionen sind unabhängig und transparent. Jedes Mitglied kann ein Licht für jemand anderen sein.">
+    We act where help is needed: for children, animals, displaced communities, and endangered culture. Our missions are independent and transparent. Every member can become a light for someone else.
+  </p>
+</section>
+
+<section id="art" data-aos="fade-up">
+  <h2 data-en="Art" data-ua="Мистецтво" data-de="Kunst">Art</h2>
+  <p data-en="We sculpt, paint, draw, and design symbols that carry essence. From sacred statues to digital realms, our creations reflect ancient codes and modern questions. Art is how we communicate with the eternal." data-ua="Ми ліпимо, малюємо, проєктуємо символи, які несуть суть. Від священних статуй до цифрових світів — наші творіння відображають давні коди й сучасні питання. Мистецтво — це наш діалог із вічністю." data-de="Wir formen, malen, entwerfen Symbole mit Bedeutung. Von heiligen Statuen bis zu digitalen Welten – unsere Werke spiegeln alte Codes und moderne Fragen wider. Kunst ist unser Dialog mit dem Ewigen.">
+    We sculpt, paint, draw, and design symbols that carry essence. From sacred statues to digital realms, our creations reflect ancient codes and modern questions. Art is how we communicate with the eternal.
+  </p>
+</section>
+
+<section id="media" data-aos="fade-up">
+  <h2 data-en="Media" data-ua="Медіа" data-de="Medien">Media</h2>
+  <p data-en="Through video, sound, text, and live streams we share our visions and truth. We blend storytelling with cinematic aesthetics and educational depth. Join us in creating conscious media for a new era." data-ua="Через відео, звук, тексти та стріми ми ділимося баченням і правдою. Ми поєднуємо розповідь з кінематографічною естетикою та глибиною освіти. Приєднуйтесь до нас у створенні усвідомленого медіа для нової епохи." data-de="Durch Video, Klang, Text und Live-Streams teilen wir unsere Visionen und unsere Wahrheit. Wir verbinden Erzählung mit filmischer Ästhetik und Bildungsgehalt. Hilf uns, bewusstes Medienwerk für ein neues Zeitalter zu schaffen.">
+    Through video, sound, text, and live streams we share our visions and truth. We blend storytelling with cinematic aesthetics and educational depth. Join us in creating conscious media for a new era.
+  </p>
+</section>
+
+<section id="news" data-aos="fade-up">
+  <h2 data-en="News" data-ua="Новини" data-de="Nachrichten">News</h2>
+  <p data-en="Upcoming exhibitions, missions, releases, and official recognitions will appear here. Stay tuned and witness how the Order grows and glows." data-ua="Тут зʼявлятимуться новини про виставки, місії, релізи та офіційні визнання. Слідкуйте та ставайте свідками росту та світіння Ордену." data-de="Hier erscheinen Nachrichten über Ausstellungen, Missionen, Veröffentlichungen und offizielle Anerkennungen. Bleibe dran und beobachte, wie der Orden wächst und leuchtet.">
+    Upcoming exhibitions, missions, releases, and official recognitions will appear here. Stay tuned and witness how the Order grows and glows.
+  </p>
+</section>
+
+<section id="blog" data-aos="fade-up">
+  <h2 data-en="Blog" data-ua="Блог" data-de="Blog">Blog</h2>
+  <p data-en="Philosophical reflections, dreams, teachings and letters — our blog is the inner voice of the Order. Each post is a window into the evolving soul of our movement." data-ua="Філософські роздуми, сни, настанови й листи — наш блог — це внутрішній голос Ордену. Кожен допис — це вікно у душу, що розвивається." data-de="Philosophische Gedanken, Träume, Lehren und Briefe – unser Blog ist die innere Stimme des Ordens. Jeder Beitrag ist ein Fenster zur wachsenden Seele unserer Bewegung.">
+    Philosophical reflections, dreams, teachings and letters — our blog is the inner voice of the Order. Each post is a window into the evolving soul of our movement.
+  </p>
+</section>
+
+<section id="join" data-aos="fade-up">
+  <h2 data-en="Join" data-ua="Приєднатись" data-de="Beitreten">Join</h2>
+  <p data-en="If you feel the call — answer it. You can become a creator, a volunteer, a guardian or a philosopher in our circle. Fill out the form, share your essence, and we’ll welcome you with open wings." data-ua="Якщо ти відчуваєш поклик — відповідай. Ти можеш стати творцем, волонтером, хранителем чи філософом у нашому колі. Заповни форму, поділись своєю сутністю — і ми приймемо тебе з розкритими крилами." data-de="Wenn du den Ruf spürst – antworte. Du kannst Schöpfer, Freiwilliger, Hüter oder Philosoph in unserem Kreis werden. Fülle das Formular aus, teile dein Wesen – und wir empfangen dich mit offenen Flügeln.">
+    If you feel the call — answer it. You can become a creator, a volunteer, a guardian or a philosopher in our circle. Fill out the form, share your essence, and we’ll welcome you with open wings.
+  </p>
+  <form style="display:flex; flex-direction:column; gap:1rem; max-width:600px; margin:2rem auto;">
+    <input type="text" name="name" placeholder="Name" required style="padding:0.6rem; border-radius:8px; border:none;"/>
+    <input type="email" name="email" placeholder="Email" required style="padding:0.6rem; border-radius:8px; border:none;"/>
+    <textarea name="message" rows="4" placeholder="Tell us why you wish to join..." style="padding:0.6rem; border-radius:8px; border:none;"></textarea>
+    <button type="submit" style="background:#7d5fff; color:white; border:none; padding:0.8rem; border-radius:10px; font-weight:bold; cursor:pointer;">Send</button>
+  </form>
+</section>
+
+  <footer>
+    &copy; 2025 HellOwl Orden. All rights reserved.
+  </footer>
+
+  <script>
+    function setLanguage(lang) {
+      localStorage.setItem('lang', lang);
+      document.querySelectorAll('[data-' + lang + ']').forEach(el => {
+        el.textContent = el.getAttribute('data-' + lang);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('lang') || 'en';
+      setLanguage(savedLang);
+      AOS.init();
+    });
+
+    const canvas = document.getElementById('starfield');
+    const ctx = canvas.getContext('2d');
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    let stars = [];
+    for (let i = 0; i < 150; i++) {
+      stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 1.2,
+        alpha: Math.random(),
+        flicker: Math.random() * 0.01
+      });
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      stars.forEach(star => {
+        star.alpha += star.flicker * (Math.random() > 0.5 ? 1 : -1);
+        star.alpha = Math.max(0.1, Math.min(1, star.alpha));
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.radius, 0, 2 * Math.PI);
+        ctx.fillStyle = `rgba(255, 255, 255, ${star.alpha})`;
+        ctx.fill();
+      });
+      requestAnimationFrame(animate);
+    }
+    animate();
+  </script>
+</body>
+</html>
